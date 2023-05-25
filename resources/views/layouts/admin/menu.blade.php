@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="admin/dashboard" class="nav-link ">
+                        <a href="/admin/dashboard" class="nav-link ">
                             <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                             <span class="pcoded-mtext">Dashboard</span>
                         </a>
@@ -51,10 +51,10 @@
                             <span class="pcoded-mtext">Master Data</span>
                         </a>
                         <ul class="pcoded-submenu">
-                            <li><a href="master/datatingkat">Data Tingkat</a></li>
-                            <li><a href="master/datakelas">Data Kelas</a></li>
-                            <li><a href="master/datasiswa">Data Siswa</a></li>
-                            <li><a href="master/dataguru">Data Guru</a></li>
+                            <li><a href="{{ route('master.datatingkat.index') }}">Data Tingkat</a></li>
+                            <li><a href="{{ route('master.datakelas.index') }}">Data Kelas</a></li>
+                            <li><a href="{{ route('master.datasiswa.index') }}">Data Siswa</a></li>
+                            <li><a href="{{ route('master.dataguru.index') }}">Data Guru</a></li>
                             <!--<li><a href="master/datawalikelas">Data Wali Kelas</a></li> -->
                         </ul>
                     </li>

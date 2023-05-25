@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>as</title>
+    <?php
+    $data_lembaga = App\Models\Profil::first();
+    ?>
+    <title>{{ $data_lembaga->nama_lembaga }}</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!-- Meta -->
@@ -12,6 +15,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="">
     <meta name="author" content="HAINUR CAHYA UTAMA" />
+    <link rel="icon" href="{{ asset('storage/upload/' . $data_lembaga->logo) }}" type="image/x-icon">
     <!-- Favicon icon -->
     <link rel="stylesheet" href="{{ asset('css/plugins/dataTables.bootstrap4.min.css') }}">
     <!-- pnotify-custom css -->

@@ -58,7 +58,7 @@
         <!-- Image Section -->
         <div class="w-1/2 shadow-2xl">
             <img class="object-cover w-full h-screen hidden md:block"
-                src="{{ asset('resources/images/admin/login-admin.gif') }}">
+                src="{{ asset('/resources/images/admin/login-admin.gif') }}">
         </div>
     </div>
 </body>
