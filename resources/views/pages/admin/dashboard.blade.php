@@ -74,7 +74,7 @@
                                                 </div>
                                                 <div class="col-8">
                                                     <h6 class="text-dark m-b-0">Jumlah Siswa</h6>
-                                                    <h4 class="text-dark">578</h4>
+                                                    <h4 class="text-dark">{{ $siswa_count }}</h4>
                                                 </div>
                                             </div>
                                         </div>

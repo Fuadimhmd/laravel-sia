@@ -3,9 +3,14 @@
 use App\Http\Controllers\Master\DataGuruController;
 use App\Http\Controllers\Master\DataKelasController;
 use App\Http\Controllers\Master\DataPenggunaController;
+use App\Http\Controllers\Master\DataRaporMapelController;
+use App\Http\Controllers\Master\DataRaporTahunController;
 use App\Http\Controllers\Master\DataSiswaController;
 use App\Http\Controllers\Master\DataTingkatController;
+use App\Http\Controllers\Master\GambarBerandaController;
+use App\Http\Controllers\Master\MenuLayananSiswaController;
 use App\Http\Controllers\Master\ProfilKelembagaanController;
+use App\Http\Controllers\Master\TahunRaporController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('master')->name('master.')->group(function () {
@@ -35,4 +40,24 @@ Route::prefix('master')->name('master.')->group(function () {
     Route::post('/dataguru', [DataGuruController::class, 'store'])->name('dataguru.store');
     Route::put('/dataguru/{id}', [DataGuruController::class, 'update'])->name('dataguru.update');
     Route::delete('/dataguru/erase', [DataGuruController::class, 'erase'])->name('dataguru.erase');
+
+    Route::get('/datarapormapel', [DataRaporMapelController::class, 'index'])->name('datarapormapel.index');
+    Route::post('/datarapormapel', [DataRaporMapelController::class, 'store'])->name('datarapormapel.store');
+    Route::put('/datarapormapel/{id}', [DataRaporMapelController::class, 'update'])->name('datarapormapel.update');
+    Route::delete('/datarapormapel/erase', [DataRaporMapelController::class, 'erase'])->name('datarapormapel.erase');
+
+    Route::get('/tahunrapor', [TahunRaporController::class, 'index'])->name('tahunrapor.index');
+    Route::post('/tahunrapor', [TahunRaporController::class, 'store'])->name('tahunrapor.store');
+    Route::put('/tahunrapor/{id}', [TahunRaporController::class, 'update'])->name('tahunrapor.update');
+    Route::delete('/tahunrapor/erase', [TahunRaporController::class, 'erase'])->name('tahunrapor.erase');
+
+    Route::get('/menulayanansiswa', [MenuLayananSiswaController::class, 'index'])->name('menulayanansiswa.index');
+    Route::post('/menulayanansiswa', [MenuLayananSiswaController::class, 'store'])->name('menulayanansiswa.store');
+    Route::put('/menulayanansiswa/{id}', [MenuLayananSiswaController::class, 'update'])->name('menulayanansiswa.update');
+    Route::delete('/menulayanansiswa/erase', [MenuLayananSiswaController::class, 'erase'])->name('menulayanansiswa.erase');
+
+    Route::get('/gambarberanda', [GambarBerandaController::class, 'index'])->name('gambarberanda.index');
+    Route::post('/gambarberanda', [GambarBerandaController::class, 'store'])->name('gambarberanda.store');
+    Route::put('/gambarberanda/{id}', [GambarBerandaController::class, 'update'])->name('gambarberanda.update');
+    Route::delete('/gambarberanda/erase', [GambarBerandaController::class, 'erase'])->name('gambarberanda.erase');
 });

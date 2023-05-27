@@ -102,8 +102,8 @@
                             <span class="pcoded-mtext"> E-Rapor</span>
                         </a>
                         <ul class="pcoded-submenu">
-                            <li><a href="master/tahunrapor">Setting Tahun Ajaran</a></li>
-                            <li><a href="master/datarapormapel">Mapel Umum</a></li>
+                            <li><a href="{{ route('master.tahunrapor.index') }}">Setting Tahun Ajaran</a></li>
+                            <li><a href="{{ route('master.datarapormapel.index') }}">Mapel Umum</a></li>
                             <!--<li><a href="master/dataraporekstra">Mapel Ekstra</a></li>-->
                             <!--<li><a href="rapot/settingguru">Setting Guru</a></li>-->
                         </ul>
@@ -202,8 +202,8 @@
                         </a>
                         <ul class="pcoded-submenu">
                             <!-- <li><a href="pengaturan/tema">Tema</a></li> -->
-                            <li><a href="pengaturan/gambarberanda/1">Gambar Banner</a></li>
-                            <li><a href="pengaturan/menulayanansiswa">Layanan Siswa</a></li>
+                            <li><a href="{{ route('master.gambarberanda.index') }}">Gambar Banner</a></li>
+                            <li><a href="{{ route('master.menulayanansiswa.index') }}">Layanan Siswa</a></li>
                         </ul>
                     </li>
 
