@@ -83,18 +83,19 @@
                                                     </div>
 
                                                     <div class="modal-body">
-                                                        <form action="pengaturan/updatemenusiswa" method="POST">
+                                                        <form
+                                                            action="{{ route('master.menulayanansiswa.update', $res->id_menu) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('put')
                                                             <div class="row">
-
-                                                                <input type="hidden" class="form-control" name="id_menu"
-                                                                    value="$res->id_menu; ?>">
                                                                 <div class="col-xl-12">
                                                                     <div class="form-group">
                                                                         <label class="floating-label"
                                                                             for="status">STATUS</label>
                                                                         <select class="mb-3 form-control" name="status"
                                                                             id="status">
-                                                                            <option value="$res->status; ?>">Pilihan
+                                                                            <option value="{{ $res->status }}">Pilihan
                                                                                 Saat
                                                                                 ini <span
                                                                                     class="font-weight-bolder">({{ $res->status }})</span>

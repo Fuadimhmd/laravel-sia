@@ -37,25 +37,25 @@
                                 style="background-color: #FF0000; color: #ffffff;"
                                 class="btn btn-sm btn-round has-ripple"><i class="fa fa-download"></i>Kosongkan Tingkat</a>
 
-                            @if (Session::has('deleted'))
-                                <div class="alert alert-info">{{ Session::get('message') }}</div>
-                                <div class="col-xl-6 alert alert-danger">
-                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                    <strong></strong> <?php echo $this->session->flashdata('hapus_berhasil'); ?>
-                                </div>
-                            @endif
-
                             @if (Session::has('created'))
-                                <div class="col-xl-6 alert alert-info">
+                                <div class="col-xl-6 alert alert-info mt-2">
                                     <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                    <strong></strong> <?php echo $this->session->flashdata('tambah_berhasil'); ?>
+                                    <strong>{{ Session::get('created') }}</strong>
                                 </div>
-                            @endif
-
-                            @if (Session::has('imported'))
-                                <div class="col-xl-6 alert alert-info">
+                            @elseif(Session::has('updated'))
+                                <div class="col-xl-6 alert alert-info mt-2">
                                     <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                    <strong>Proses Selesai </strong> <?php echo $this->session->flashdata('import_berhasil'); ?>
+                                    <strong>{{ Session::get('updated') }}</strong>
+                                </div>
+                            @elseif(Session::has('imported'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('imported') }}</strong>
+                                </div>
+                            @elseif(Session::has('deleted'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('deleted') }}</strong>
                                 </div>
                             @endif
                         </div>
@@ -81,7 +81,7 @@
                                                         data-target="#modal-edittingkat{{ $res->id_tingkat }}"
                                                         style="background-color: #01605A; color: #ffffff;"
                                                         class="btn btn-icon btn-sm"><i class="feather icon-edit"></i></a>
-                                                    <a href="master/hapustingkat/{{ $res->id_tingkat }}"
+                                                    <a href="{{ route('master.datatingkat.destroy', $res) }}"
                                                         class="btn btn-icon btn-sm tombol-hapus"
                                                         style="background-color: #FF0000; color: #ffffff;"><i
                                                             class="feather icon-trash-2"></i></a>
@@ -100,7 +100,10 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="master/updatekelas" method="POST">
+                                                            <form action="{{ route('master.datatingkat.update', $res) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('put')
                                                                 <div class="row">
 
                                                                     <div class="col-sm-12">
@@ -112,10 +115,6 @@
                                                                                 value="{{ $res->nama_tingkat }}"
                                                                                 oninput="this.value = this.value.toUpperCase()"
                                                                                 autocomplete="off">
-                                                                            <input type="hidden" class="form-control"
-                                                                                name="id_tingkat"
-                                                                                value="{{ $res->id_tingkat }}"
-                                                                                placeholder="XII">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-12">
@@ -156,7 +155,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="master/simpantingkat" method="post" enctype="multipart/form-data" role="form">
+                    <form action="{{ route('master.datatingkat.store') }}" method="post" enctype="multipart/form-data"
+                        role="form">
+                        @csrf
                         <div class="row">
 
                             <div class="col-sm-12">

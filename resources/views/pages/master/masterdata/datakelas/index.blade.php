@@ -36,6 +36,28 @@
                             <a href="master/hapussemuakelas" class="btn btn-sm btn-round has-ripple"
                                 style="background-color: #FF0000; color: #ffffff;"><i class="fa fa-download"></i>Kosongkan
                                 Kelas</a>
+
+                            @if (Session::has('created'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('created') }}</strong>
+                                </div>
+                            @elseif(Session::has('updated'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('updated') }}</strong>
+                                </div>
+                            @elseif(Session::has('imported'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('imported') }}</strong>
+                                </div>
+                            @elseif(Session::has('deleted'))
+                                <div class="col-xl-6 alert alert-info mt-2">
+                                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                    <strong>{{ Session::get('deleted') }}</strong>
+                                </div>
+                            @endif
                         </div>
 
                         <div class="card-body">
@@ -73,7 +95,7 @@
                                                         class="btn btn-icon btn-sm"
                                                         style="background-color: #01605A; color: #ffffff;"><i
                                                             class="feather icon-edit"></i></a>
-                                                    <a href="master/hapuskelas/{{ $res->id_kelas }}"
+                                                    <a href="{{ route('master.datakelas.destroy', $res) }}"
                                                         class="btn btn-icon btn-sm tombol-hapus"
                                                         style="background-color: #FF0000; color: #ffffff;"><i
                                                             class="feather icon-trash-2"></i></a>
@@ -91,7 +113,10 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="master/updatekelas" method="POST">
+                                                            <form action="{{ route('master.datakelas.update', $res) }}"
+                                                                method="POST">
+                                                                @method('put')
+                                                                @csrf
                                                                 <div class="row">
 
                                                                     <div class="col-sm-6">
@@ -102,9 +127,6 @@
                                                                             <input type="text" class="form-control"
                                                                                 name="nama_kelas"
                                                                                 value="{{ $res->nama_kelas }}">
-                                                                            <input type="hidden" class="form-control"
-                                                                                name="id_kelas" value="{{ $res->id_kelas }}"
-                                                                                placeholder="XII-A">
                                                                         </div>
                                                                     </div>
 
@@ -112,10 +134,11 @@
                                                                         <div class="form-group">
                                                                             <label class="floating-label"
                                                                                 for="tingkat_kelas">Tingkat Kelas</label>
-                                                                            <select class="form-control" id="tingkat_kelas"
-                                                                                name="tingkat_kelas">
+                                                                            <select class="form-control"
+                                                                                id="tingkat_kelas" name="tingkat_kelas">
                                                                                 @foreach ($datatingkat as $key)
-                                                                                    <option value="{{ $key->id_tingkat }}">
+                                                                                    <option
+                                                                                        value="{{ $key->id_tingkat }}">
                                                                                         {{ $key->nama_tingkat }}</option>
                                                                                 @endforeach
 
@@ -161,14 +184,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="master/simpankelas" method="post" enctype="multipart/form-data" role="form">
+                    <form action="{{ route('master.datakelas.store') }}" method="post" enctype="multipart/form-data"
+                        role="form">
+                        @csrf
                         <div class="row">
 
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label class="floating-label" for="nama_kelas">Nama Kelas</label>
-                                    <input type="hidden" class="form-control" name="kode_kelas"
-                                        value="random_string('alnum', 15)" autocomplete="off" readonly>
                                     <input type="text" class="form-control" name="nama_kelas"
                                         placeholder="Nama Kelas" oninput="this.value = this.value.toUpperCase()"
                                         autocomplete="off">

@@ -11,6 +11,8 @@ class Kelas extends Model
 
     protected $guarded = [''];
 
+    protected $primaryKey = 'id_kelas';
+
     public $timestamps = false;
 
     public function tingkat_kelas()

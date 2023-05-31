@@ -16,7 +16,7 @@
     <meta name="description" content="Aplikasi sekolah berbasis digital">
     <meta name="generator" content="HubSpot">
     <title>{{ $data_lembaga->nama_lembaga }}</title>
-    <link rel="icon" href="{{ asset('/storage/upload/' . $data_lembaga->logo) }}" type="image/x-icon">
+    <link rel="icon" href="{{ $data_lembaga->getLogo() }}" type="image/x-icon">
     <link rel="shortcut icon" href="">
     <meta property="og:description" content="Aplikasi sekolah berbasis digital">
     <meta property="og:title" content="SIASIK Application">
@@ -121,15 +121,14 @@
 
                                             <a href="/">
                                                 <div class="logo-header">
-                                                    <img style="width:30px;10px;"
-                                                        src="{{ asset('/storage/upload/9e94660d834dfaadbb421bfb9cd2679a.png') }}">
+                                                    <img style="width:30px;10px;" src="{{ $data_lembaga->getLogo() }}">
                                                 </div>
                                             </a>
                                         </div>
 
                                         <div class="navigation__content">
                                             <div id="produk" aria-expanded="false">
-                                                <a>SMK ISTEK TEGAL</a>
+                                                <a>{{ $data_lembaga->nama_lembaga }}</a>
                                             </div>
 
                                             <div class="navig-link navig-link-dropdown" id="services">
@@ -618,7 +617,8 @@
                                                                 <div class="card c-f-kc2 border-0 text-left posit-1">
                                                                     <div class="card-body p-2">
                                                                         <p class="card-title mb-1">
-                                                                            <span class="scVal"></span>
+                                                                            <span
+                                                                                class="fpVal">{{ $count_siswa }}</span>
                                                                         </p>
                                                                         <p class="card-text">
                                                                             Peserta Didik
@@ -638,7 +638,8 @@
                                                                 <div class="card c-f-kc2 border-0 text-left posit-3">
                                                                     <div class="card-body p-2">
                                                                         <p class="card-title mb-1">
-                                                                            <span class="fpVal">0</span>
+                                                                            <span
+                                                                                class="fpVal">{{ $count_guru }}</span>
                                                                         </p>
                                                                         <p class="card-text">
                                                                             Guru Dan Tendik
@@ -1039,7 +1040,7 @@
                                                     <div class="sec-address__logo">
                                                         <a href="#">
                                                             <img style="width:30px;10px;"
-                                                                src="{{ asset('storage/upload/' . $data_lembaga->logo) }}"
+                                                                src="{{ asset($data_lembaga->getLogo()) }}"
                                                                 alt="Logo Smartschool">
                                                         </a>
                                                     </div>
@@ -1123,8 +1124,8 @@
                                                                     alt="Logo Whatsapp Footer"></div>
                                                             <div class="contact__container--text"><a
                                                                     class="font-base-footer font-white"
-                                                                    href="https://wa.me/$data_lembaga->notelp; ?>">{{ $data_lembaga->notelp }}
-                                                                    ?></a>
+                                                                    href="https://wa.me/{{ $data_lembaga->notelp }}">{{ $data_lembaga->notelp }}
+                                                                </a>
                                                             </div>
                                                         </div>
                                                         <div class="contact__container">
@@ -1308,7 +1309,7 @@
 
         <script>
             // counter Satisfied clients
-            var maxScVal = $this - > db - > count_all_results('pendaftar'); ? > ;
+            var maxScVal = {{ $count_siswa }};
             var isc = parseInt($('.scVal').text());
             var tim;
 
@@ -1324,7 +1325,7 @@
             run();
             //Counters
             // counter finished Projects
-            var maxfPVal = $this - > db - > count_all_results('guru'); ? > ;
+            var maxfPVal = {{ $count_siswa }};
             var ifP = parseInt($('.fpVal').text());
             var timfP;
 
@@ -1343,7 +1344,7 @@
             //finished Projects
 
             //counter Team Members
-            var maxtMVal = $this - > db - > count_all_results('rapormapel'); ? > ;
+            var maxtMVal = {{ $count_siswa }};
             var itm = parseInt($('.tMVal').text());
             var timtM;
 
@@ -1360,7 +1361,7 @@
             //Team Members
 
             //counter blog post
-            var maxbPVal = $this - > db - > count_all_results('alumni'); ? > ;
+            var maxbPVal = {{ $count_siswa }};
             var ibP = parseInt($('.bPVal').text());
             var timbP;
 

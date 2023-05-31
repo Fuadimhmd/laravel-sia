@@ -1,67 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.guest')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="cahya">
-    <meta name="description" content="">
-    <script src="/cdn-cgi/apps/head/yZcRqLnyFEjMCrfXHlj2VKQPx0g.js"></script>
-    <!-- Tailwind -->
+@section('content')
+    <div class="row h-100 justify-content-center">
+        <div class="col-xxl-5 col-lg-7 col-12">
+            <div id="auth-left">
+                <div class="auth-logo">
+                    <a class="d-flex align-items-center" href="/"><img src="{{ asset($data_lembaga->getLogo()) }}"
+                            class="me-2" alt="Logo">
+                        <h4 class="mt-2">{{ $data_lembaga->nama_lembaga }}</h4>
+                    </a>
+                </div>
+                <h1 class="auth-title">Masuk</h1>
+                <p class="auth-subtitle mb-5">Masuk ke Menu Admin</p>
 
-    <!-- Login ADMIN Material -->
-    <link href="{{ asset('/css/tailwind.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/loginadmin.css') }}" rel="stylesheet">
-</head>
-
-
-<body class="bg-white font-family-karla h-screen">
-    <div class="w-full flex flex-wrap">
-
-        <!-- Login Section -->
-        <div class="w-full md:w-1/2 flex flex-col">
-            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <p class="text-left text-5xl" style="color:#087990"><u><strong>Login</strong></u><span
-                        class="text-left text-2xl" style="color:#3F6F81"><strong>ADMINISTRATOR</strong></span>
-                <p>
-                <h5 style="color:#087990"><strong style="color:#087990"></strong> <br>Sistem Login SIASIK </h5>
-
-                <form action="{{ route('login') }}" method="POST" class="flex flex-col pt-3 md:pt-4">
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
-                    <div class="flex flex-col pt-2">
-                        <label for="username" class="text-lg">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Username"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                    <div
+                        class="form-group @error('username')
+                             is-invalid
+                        @enderror position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control form-control-xl text-secondary" placeholder="Username"
+                            name="username">
+                        <div class="form-control-icon">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        @error('username')
+                            <div class="parsley-error filled" id="parsley-id-5" aria-hidden="false"><span
+                                    class="parsley-required">{{ $message }}</span></div>
+                        @enderror
                     </div>
-                    @error('username')
-                        <span class="text-red-500 text-sm" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    <div class="flex flex-col pt-2">
-                        <label for="password" class="text-lg">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Password"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                    <div
+                        class="form-group @error('password')
+                        is-invalid
+                   @enderror position-relative has-icon-left mb-4">
+                        <input type="password" class="form-control form-control-xl text-secondary" name="password"
+                            placeholder="Password">
+                        <div class="form-control-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        @error('password')
+                            <div class="parsley-error filled" id="parsley-id-5" aria-hidden="false"><span
+                                    class="parsley-required">{{ $message }}</span></div>
+                        @enderror
                     </div>
-                    @error('password')
-                        <span class="text-red-500 text-sm" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                    <button type="submit" class="button primary">Masuk</button>
+                    <div class="form-check form-check-lg d-flex align-items-end">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                            Keep me logged in
+                        </label>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                 </form>
-                <div class="text-center pt-12 pb-12">
-                    <p>Perlu Bantuan ? <a href="#" class="underline font-semibold">Hubungi Bagian Admin</a></p>
+                <div class="text-center mt-5 text-lg fs-4">
+                    {{-- <p class="text-gray-600">Don't have an account? <a href="auth-register.html"
+                                class="font-bold">Sign
+                                up</a>.</p> --}}
+                    <p><a class="font-bold" href="{{ route('password.request') }}">Lupa password</a>.</p>
                 </div>
             </div>
         </div>
-        <!-- Image Section -->
-        <div class="w-1/2 shadow-2xl">
-            <img class="object-cover w-full h-screen hidden md:block"
-                src="{{ asset('/resources/images/admin/login-admin.gif') }}">
-        </div>
     </div>
-</body>
-
-
-</html>
+@endsection

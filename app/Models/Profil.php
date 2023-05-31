@@ -11,4 +11,9 @@ class Profil extends Model
     protected $primaryKey = 'id_profil';
     protected $guarded = [];
     public $timestamps = false;
+
+    public function getLogo()
+    {
+        return '/storage/' . $this->logo;
+    }
 }

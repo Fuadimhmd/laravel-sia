@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('nama_user');
             $table->string('notelp');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->enum('role', ['admin', 'user', 'operator', 'bk', 'kepsek', 'humas', 'kurikulum', 'kesiswaan', 'sarpras', 'bendahara', 'resepsionis', 'perpustakaan']);
         });
     }

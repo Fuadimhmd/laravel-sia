@@ -31,7 +31,10 @@
                         </div>
 
                         <div class="card-body">
-                            <form role="form" action="" novalidate method="POST" enctype="multipart/form-data">
+                            <form role="form" action="{{ route('master.profileKelembagaan.update', $profil) }}"
+                                novalidate method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -44,7 +47,7 @@
                                         <div class="form-group">
                                             <label class="form-label font-weight-bolder">PEMERINTAH</label>
                                             <select class="form-control" id="pemerintah" name="pemerintah">
-                                                <option value="->pemerintah; ?>">Pilihan Saat ini <span
+                                                <option value="{{ $profil->pemerintah }}">Pilihan Saat ini <span
                                                         class="font-weight-bolder">({{ $profil->pemerintah }})</span>
                                                 </option>
                                                 <option value="KABUPATEN">KABUPATEN</option>
@@ -82,8 +85,8 @@
                                         <div class="form-group">
                                             <label class="form-label font-weight-bolder">STATUS LEMBAGA</label>
                                             <select class="form-control" id="status" name="status">
-                                                <option value="->status; ?>">Pilihan Saat ini <span
-                                                        class="font-weight-bolder">({{ $profil->status }})</span></option>
+                                                <option value="{{ $profil->status }}">Pilihan Saat ini <span
+                                                        class="font-weight-bolder">{{ $profil->status }}</span></option>
                                                 <option value="Negeri">Negeri</option>
                                                 <option value="Swasta">Swasta</option>
                                                 </optgroup>
@@ -204,7 +207,8 @@
                                             <label class="form-label font-weight-bolder">Logo Lembaga</label>
                                             <div class="card card-info">
                                                 <div class="card-body">
-                                                    <center><img style="width:150px;150px;" src=""
+                                                    <center><img style="width:150px;150px;"
+                                                            src="{{ asset($profil->getLogo()) }}"
                                                             class="img-responsive img-thumbnail" /></center>
                                                 </div>
                                             </div>

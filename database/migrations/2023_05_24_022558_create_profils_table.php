@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('npsn');
             $table->string('nama_lembaga');
             $table->string('nama_lembaganaungan');
-            $table->string('pemerintah');
+            $table->string('pemerintah')->nullable();
             $table->string('pemerintahkop');
             $table->string('alamat_lembaga');
             $table->string('kota_lembaga');
@@ -27,9 +27,9 @@ return new class extends Migration
             $table->string('nip_kepsek');
             $table->string('alamatwebsite');
             $table->string('logo');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('pesanberjalan');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->string('video_profil');
         });
     }

@@ -37,9 +37,12 @@ class MenuLayananSiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, MenuSiswa $menuSiswa)
+    public function update(Request $request, string $id_menu)
     {
-        //
+        // dd($request->all());
+        $layanan = MenuSiswa::find($id_menu);
+        $layanan->update(['status' => $request->status]);
+        return back();
     }
 
     /**

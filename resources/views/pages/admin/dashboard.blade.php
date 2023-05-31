@@ -30,7 +30,7 @@
                                                 </div>
                                                 <div class="col-8">
                                                     <h6 class="text-dark m-b-0">Tingkat</h6>
-                                                    <h4 class="text-dark">24</h4>
+                                                    <h4 class="text-dark">{{ $tingkat_count }}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="col-8">
                                                     <h6 class="text-dark m-b-0">Jumlah Kelas</h6>
-                                                    <h4 class="text-dark">32</h4>
+                                                    <h4 class="text-dark">{{ $kelas_count }}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -96,7 +96,7 @@
                                                 </div>
                                                 <div class="col-8">
                                                     <h6 class="text-dark m-b-0">Jumlah Guru</h6>
-                                                    <h4 class="text-dark">23</h4>
+                                                    <h4 class="text-dark">{{ $guru_count }}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="col-8">
                                     <h6>{{ $profil->npsn }}</h6>
-                                    <h6>{{ $profil->status }}</h6>
+                                    <h6>{{ $profil->status ? $profil->status : '-' }}</h6>
                                     <h6>{{ $profil->alamat_lembaga }}</h6>
                                     <h6>{{ $profil->kota_lembaga }}</h6>
                                     <h6>{{ $profil->provinsi_lembaga }}</h6>

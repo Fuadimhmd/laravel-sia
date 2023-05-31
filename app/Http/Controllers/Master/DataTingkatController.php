@@ -23,7 +23,8 @@ class DataTingkatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tingkat::create($request->all());
+        return back()->with('created', 'data tingkat berhasil ditambahkan');
     }
 
     /**
@@ -39,7 +40,9 @@ class DataTingkatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tingkat = Tingkat::find($id);
+        $tingkat->update(['nama_tingkat' => $request->nama_tingkat]);
+        return back()->with('updated', 'data berhasil di update');
     }
 
     /**
@@ -47,6 +50,8 @@ class DataTingkatController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tingkat = Tingkat::find($id);
+        $tingkat->delete();
+        return back()->with('deleted', 'data berhasil di hapus');
     }
 }

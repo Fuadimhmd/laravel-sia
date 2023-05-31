@@ -15,7 +15,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="">
     <meta name="author" content="HAINUR CAHYA UTAMA" />
-    <link rel="icon" href="{{ asset('storage/upload/' . $data_lembaga->logo) }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset($data_lembaga->getLogo()) }}" type="image/x-icon">
     <!-- Favicon icon -->
     <link rel="stylesheet" href="{{ asset('css/plugins/dataTables.bootstrap4.min.css') }}">
     <!-- pnotify-custom css -->
@@ -103,10 +103,6 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.location.href = href;
-                    Swal.fire(
-                        'Terhapus',
-                        'Data Berhasil dihapus',
-                        'success')
                 }
             })
         });

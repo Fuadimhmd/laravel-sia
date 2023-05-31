@@ -172,7 +172,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="master/simpantingkat" method="post" enctype="multipart/form-data" role="form">
+                    <form action="{{ route('master.datakelas.store') }}" method="post" enctype="multipart/form-data"
+                        role="form">
                         <div class="row">
 
                             <div class="col-sm-12">

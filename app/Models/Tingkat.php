@@ -10,6 +10,7 @@ class Tingkat extends Model
     use HasFactory;
 
     protected $guarded = [''];
+    protected $primaryKey = 'id_tingkat';
 
     public $timestamps = false;
 }

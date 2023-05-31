@@ -25,7 +25,16 @@ class DataKelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "nama_kelas" => ['required'],
+            "tingkat_kelas" => ['required'],
+        ]);
+
+        $data['kode_kelas'] = rand(100000000000, 900000000000);
+        $data['id_tingkat'] = $data['tingkat_kelas'];
+
+        Kelas::create($data);
+        return back()->with('created', 'kelas berhasil ditambahkan');
     }
 
     /**
@@ -39,16 +48,26 @@ class DataKelasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kelas $kelas)
+    public function update(Request $request, string $id)
     {
-        //
+        $kelas = Kelas::find($id);
+        $data = $request->validate([
+            "nama_kelas" => ['required'],
+            "tingkat_kelas" => ['required'],
+        ]);
+        $data['id_tingkat'] = $data['tingkat_kelas'];
+
+        $kelas->update($data);
+        return back()->with('updated', 'kelas berhasil di update');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kelas $kelas)
+    public function destroy(string $id)
     {
-        //
+        $kelas = Kelas::find($id);
+        $kelas->delete();
+        return back()->with('deleted', 'kelas berhasil di hapus');
     }
 }

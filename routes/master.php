@@ -13,9 +13,9 @@ use App\Http\Controllers\Master\ProfilKelembagaanController;
 use App\Http\Controllers\Master\TahunRaporController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('master')->name('master.')->group(function () {
+Route::prefix('master')->name('master.')->middleware('auth')->group(function () {
     Route::get('/profilkelembagaan/{id}', [ProfilKelembagaanController::class, 'index'])->name('profileKelembagaan.index');
-    Route::post('/profilkelembagaan/{id}', [ProfilKelembagaanController::class, 'store/update']);
+    Route::put('/profilkelembagaan/{id}', [ProfilKelembagaanController::class, 'update'])->name('profileKelembagaan.update');
 
     Route::get('/datapengguna', [DataPenggunaController::class, 'index'])->name('datapengguna.index');
     Route::post('/datapengguna', [DataPenggunaController::class, 'store'])->name('datapengguna.store');
@@ -25,10 +25,12 @@ Route::prefix('master')->name('master.')->group(function () {
     Route::post('/datatingkat', [DataTingkatController::class, 'store'])->name('datatingkat.store');
     Route::put('/datatingkat/{id}', [DataTingkatController::class, 'update'])->name('datatingkat.update');
     Route::delete('/datatingkat/erase', [DataTingkatController::class, 'erase'])->name('datatingkat.erase');
+    Route::get('/datatingkat/{id}/destroy', [DataTingkatController::class, 'destroy'])->name('datatingkat.destroy');
 
     Route::get('/datakelas', [DataKelasController::class, 'index'])->name('datakelas.index');
     Route::post('/datakelas', [DataKelasController::class, 'store'])->name('datakelas.store');
     Route::put('/datakelas/{id}', [DataKelasController::class, 'update'])->name('datakelas.update');
+    Route::get('/datakelas/{id}/destroy', [DataKelasController::class, 'destroy'])->name('datakelas.destroy');
     Route::delete('/datakelas/erase', [DataKelasController::class, 'erase'])->name('datakelas.erase');
 
     Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa.index');
