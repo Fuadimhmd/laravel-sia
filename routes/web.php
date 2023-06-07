@@ -22,3 +22,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 include('admin.php');
 include('master.php');
+include('guru.php');

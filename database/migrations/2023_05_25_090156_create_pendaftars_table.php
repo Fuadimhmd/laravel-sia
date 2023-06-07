@@ -98,7 +98,7 @@ return new class extends Migration
             $table->string('wali_penghasilan', '100');
             $table->string('wali_nohp', '100');
             $table->string('wali_status', '100');
-            $table->string('email', '100')->unique();
+            $table->string('email', '100');
             $table->string('username', '100');
             $table->string('password', '100');
             $table->string('role', '100');

@@ -13,22 +13,21 @@ return new class extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->id('id_guru');
-            $table->string('nip', '255');
+            $table->string('nip', 255)->unique();
             $table->enum('jeniskelamin', ['L', 'P']);
-            $table->string('nama_guru', '255');
-            $table->string('alamat', '255');
-            $table->string('foto_guru', '255');
-            $table->string('username', '50');
-            $table->string('password', '50');
-            $table->string('role', '50');
-            $table->string('namamapel', '100');
-            $table->string('email', '255');
-            $table->string('notelp', '255');
-            $table->string('pangkat', '255');
-            $table->string('golongan', '255');
-            $table->string('jenisjabatan', '255');
-            $table->string('status_guru', '255');
-            // $table->timestamps();
+            $table->string('nama_guru', 255);
+            $table->string('alamat', 255);
+            $table->string('foto_guru', 255);
+            $table->string('username', 50);
+            $table->string('password', 50);
+            $table->string('role', 50);
+            $table->string('namamapel', 100);
+            $table->string('email', 255);
+            $table->string('notelp', 255);
+            $table->string('pangkat', 255);
+            $table->string('golongan', 255);
+            $table->string('jenisjabatan', 255)->nullable();
+            $table->string('status_guru', 255);
         });
     }
 

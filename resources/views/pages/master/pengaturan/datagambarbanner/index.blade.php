@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.authenticated')
 
 @section('content')
     <!-- [ Main Content ] start -->

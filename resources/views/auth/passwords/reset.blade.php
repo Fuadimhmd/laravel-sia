@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div class="row h-100 justify-content-center">
+    {{-- <div class="row h-100 justify-content-center">
         <div class="col-lg-5 col-12">
             <div id="auth-left">
                 <div class="auth-logo">
@@ -42,8 +42,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    {{-- <div class="container">
+    </div> --}}
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -111,5 +111,5 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 @endsection

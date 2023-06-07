@@ -33,8 +33,12 @@
 </head>
 
 <body>
-
-    @include('layouts.admin.menu')
+    {{-- @dd(auth()->user()) --}}
+    @if (auth()->user() == null)
+        @include('layouts.guru.menu')
+    @else
+        @include('layouts.admin.menu')
+    @endif
     @yield('content')
 
     <script type="text/javascript" src="jamServer.js"></script>

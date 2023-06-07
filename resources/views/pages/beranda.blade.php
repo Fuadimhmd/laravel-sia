@@ -233,7 +233,8 @@
                                                             alt="arrow"></button>
                                                 </a>
                                                 &nbsp;
-                                                <a href="loginguru"><button class="btn-banding-paket">Login Akun Guru
+                                                <a href="{{ route('guru.login') }}"><button
+                                                        class="btn-banding-paket">Login Akun Guru
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
                                                             src="/beranda/image/carbon_arrow-right.svg"
                                                             alt="arrow"></button>
