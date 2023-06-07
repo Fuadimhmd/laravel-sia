@@ -11,11 +11,17 @@ class BiodataController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function informasi()
     {
-        $data = Guru::find(auth()->guard('guru')->user()->id_guru);
+        $data_profil = Guru::find(auth()->guard('guru')->user()->id_guru);
         // dd($data);
-        return view('pages.guru.informasi');
+        return view('pages.guru.biodata.informasi', compact('data_profil'));
+    }
+    public function foto()
+    {
+        $data_profil = Guru::find(auth()->guard('guru')->user()->id_guru);
+        // dd($data);
+        return view('pages.guru.biodata.foto', compact('data_profil'));
     }
 
     /**

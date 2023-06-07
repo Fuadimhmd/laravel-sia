@@ -11,6 +11,6 @@ Route::prefix('guru')->name('guru.')->group(function () {
     Route::get('/login-guru', [LoginGuruController::class, 'showLoginForm'])->name('login')->withoutMiddleware('auth:guru');
     Route::post('/login-guru', [LoginGuruController::class, 'login'])->name('login')->withoutMiddleware('auth:guru');
 
-    Route::get('/biodata/informasi-pribadi', [BiodataController::class, 'index'])->name('biodata.index');
+    Route::get('/biodata/informasi-pribadi', [BiodataController::class, 'informasi'])->name('biodata.informasi');
     Route::get('/biodata/foto-pribadi', [BiodataController::class, 'foto'])->name('biodata.foto');
 });

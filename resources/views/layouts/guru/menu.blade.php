@@ -39,8 +39,8 @@
                             <span class="pcoded-mtext">Biodata</span>
                         </a>
                         <ul class="pcoded-submenu">
-                            <li><a href="{{ route('guru.biodata.index', '1') }}">Informasi Pribadi</a></li>
-                            <li><a href="{{ route('master.datapengguna.index') }}">Foto Pribadi</a></li>
+                            <li><a href="{{ route('guru.biodata.informasi') }}">Informasi Pribadi</a></li>
+                            <li><a href="{{ route('guru.biodata.foto') }}">Foto Pribadi</a></li>
                             <!-- <li><a href="master/datasarpras">Data Sarpras</a></li> -->
                         </ul>
                     </li>
