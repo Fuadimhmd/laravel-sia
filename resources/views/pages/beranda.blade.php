@@ -1,11 +1,4 @@
 <!doctype html>
-<!--[if lt IE 7]>
-        <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="id" > <![endif]-->
-<!--[if IE 7]>
-        <html class="no-js lt-ie9 lt-ie8" lang="id" >        <![endif]-->
-<!--[if IE 8]>
-        <html class="no-js lt-ie9" lang="id" >               <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="id">
 <!--<![endif]-->
 
@@ -76,10 +69,10 @@
     </style>
 
     <link rel="stylesheet" href="{{ asset('/beranda/module_39227318886_header-homepage.min.css') }}">
-    <link rel="stylesheet" href="/beranda/module_70765523749_Module_Banner_Paket_-_RG_Homepage_2022_AB_Test.min.css">
+    <link rel="stylesheet" href="{{ asset('/beranda/module_70765523749_Module_Banner_Paket_-_RG_Homepage_2022_AB_Test.min.css')}}">
     <link rel="stylesheet"
-        href="/beranda/module_70765523748_Module_Section_Kejar_Cita2mu_Testimoni_Pengguna_-_RG_Homepage_2022_AB_Test.css">
-    <link rel="stylesheet" href="/beranda/module_70765523755_Module_Section_Benefit_-_RG_Homepage_2022_AB_Test.min.css">
+        href="{{ asset('/beranda/module_70765523748_Module_Section_Kejar_Cita2mu_Testimoni_Pengguna_-_RG_Homepage_2022_AB_Test.css')}}">
+    <link rel="stylesheet" href="{{ asset('/beranda/module_70765523755_Module_Section_Benefit_-_RG_Homepage_2022_AB_Test.min.css')}}">
     <link rel="stylesheet"
         href="/beranda/module_70765523744_Module_Section_Perbandingan_Paket_-_RG_Homepage_2022_AB_Test.css">
     <link rel="stylesheet" href="/beranda/module_71394810234_content_homepage_RG_2021_for_2022_AB_Test_versi_B.css">
@@ -96,7 +89,7 @@
     <link rel="stylesheet" href="/beranda/SOP_Style.min.css">
 </head>
 
-<body class="   hs-content-id-39403979750 hs-landing-page hs-page " style="">
+<body class="hs-content-id-39403979750 hs-landing-page hs-page " style="">
     <div class="header-container-wrapper">
         <div class="header-container container-fluid">
 
@@ -109,14 +102,12 @@
                             data-hs-cos-general-type="widget" data-hs-cos-type="module">
                             <link rel="stylesheet" href="/beranda/bootstrap.min.css">
 
-
                             <nav class="ruangguru-header">
                                 <div class="page-center">
                                     <div class="container-ruangguru-header">
                                         <div class="navigation__left">
                                             <div class="hamburger-icon">
-                                                <img src="/beranda/image/ic_hamburger_black.svg"
-                                                    alt="Dropdown Navigation Icon">
+                                                <img src="/beranda/image/ic_hamburger_black.svg" alt="Dropdown Navigation Icon">
                                             </div>
 
                                             <a href="/">
@@ -127,14 +118,14 @@
                                         </div>
 
                                         <div class="navigation__content">
-                                            <div id="produk" aria-expanded="false">
+                                            <div id="produk" aria-expanded="true">
                                                 <a>{{ $data_lembaga->nama_lembaga }}</a>
                                             </div>
 
                                             <div class="navig-link navig-link-dropdown" id="services">
                                                 <a>Administrasi</a>
                                             </div>
-                                            <div class="navig-dropdown-area" id="services_item" aria-expanded="false">
+                                            <div class="navig-dropdown-area" id="services_item" aria-expanded="true">
                                                 <div class="item-services">
                                                     <a href="login">Login Admin</a>
                                                 </div>
@@ -164,12 +155,12 @@
                             </nav>
 
 
-                            <script src="/beranda/jquery-3.5.1.slim.min.js"></script>
-                            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-                            <script src="/beranda/popper.min.js"></script>
-                            <script src="/beranda/bootstrap.min.js"></script>
+                            <script src="{{ asset('/beranda/jquery-3.5.1.slim.min.js')}}"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                            <script src="{{ asset('/beranda/popper.min.js')}}"></script>
+                            <script src="{{ asset('/beranda/bootstrap.min.js')}}"></script>
 
-                            <script src="/beranda/jquery.min.js"></script>
+                            <script src="{{ asset('/beranda/jquery.min.js')}}"></script>
                         </div>
 
                     </div>

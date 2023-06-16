@@ -15,7 +15,7 @@
                         <img class="img-radius" src="{{ asset('/resources/images/pengguna/default.png') }}"
                             alt="User-Profile-Image">
                         <div class="user-details">
-                            <div id="more-details">{{ auth()->user()->nama_user }}</div>
+                            <div id="more-details">{{ auth()->user()-> nama_user }}</div>
                         </div>
                     </div>
                 </div>

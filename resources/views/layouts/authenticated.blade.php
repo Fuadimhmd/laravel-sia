@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('/css/plugins/select2.min.css') }}">
     <!-- vendor css -->
     <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
     <script src="{{ asset('/js/Chart.js') }}"></script>
 </head>
 
@@ -86,7 +87,6 @@
     <script src="{{ asset('/js/plugins/buttons.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('/js/pages/data-export-custom.js') }}"></script>
     <script src="{{ asset('/js/pages/data-buttons-custom.js') }}"></script>
-
 
     <!-- Fungsi Tombol Hapus dengan konfirmasi -->
     <script>
